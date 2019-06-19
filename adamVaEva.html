@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adam và eva</title>
+</head>
+<body>
+
+<script>
+
+    function Apple(weight) {
+        this.weight = weight;
+        this.decrease = function () {
+            if (this.weight > 0) {
+                this.weight--;
+            }
+            this.getWeight = function () {
+                return this.weight;
+            };
+            this.isEmpty = function () {
+                if (this.weight === 0) {
+                    return true;
+                } else {
+                    return false
+                }
+            }
+        }
+    }
+
+    function Human(name, gender, canNang) {
+        this.name = name;
+        this.gender = gender;
+        this.canNang = canNang;
+
+        this.isMale = function () {
+            if (this.gender === 'male') {
+                return 'male';
+            }
+            return 'female';
+        };
+
+        this.void = function () {
+            return console.log('ăn đi')
+        };
+        this.checkApple = function (apple) {
+            if (!apple.isEmpty()) {
+                return true
+            }
+            return false;
+        };
+        this.eat = function (apple) {
+            apple.decrease();
+            this.canNang++;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getCanNang = function () {
+            return this.canNang;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+    }
+
+    let apple = new Apple(10);
+    let human = new Human('adam', 'male', 60);
+    let human1 = new Human('eva', 'female', 40);
+
+    alert(apple.weight);
+    human.eat(apple);
+    human1.eat(apple);
+    alert(human.getCanNang());
+    alert(human1.getCanNang());
+    alert(apple.weight);
+
+
+</script>
+
+</body>
+</html>
