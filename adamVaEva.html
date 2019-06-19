@@ -14,18 +14,19 @@
             if (this.weight > 0) {
                 this.weight--;
             }
-            this.getWeight = function () {
-                return this.weight;
-            };
-            this.isEmpty = function () {
-                if (this.weight === 0) {
-                    return true;
-                } else {
-                    return false
-                }
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.isEmpty = function () {
+            if (this.weight === 0) {
+                return true;
+            } else {
+                return false
             }
         }
     }
+
 
     function Human(name, gender, canNang) {
         this.name = name;
@@ -34,13 +35,13 @@
 
         this.isMale = function () {
             if (this.gender === 'male') {
-                return 'male';
+                return true;
             }
-            return 'female';
+            return false;
         };
 
-        this.void = function () {
-            return console.log('ăn đi')
+        this.say = function (message) {
+            console.log(message)
         };
         this.checkApple = function (apple) {
             if (!apple.isEmpty()) {
@@ -67,14 +68,17 @@
     }
 
     let apple = new Apple(10);
-    let human = new Human('adam', 'male', 60);
-    let human1 = new Human('eva', 'female', 40);
+    let adam = new Human('adam', 'male', 60);
+    let eva = new Human('eva', 'female', 40);
 
-    alert(apple.weight);
-    human.eat(apple);
-    human1.eat(apple);
-    alert(human.getCanNang());
-    alert(human1.getCanNang());
+
+    adam.eat(apple);
+    eva.eat(apple);
+    while (apple.getWeight() != 0) {
+        eva.eat(apple);
+    }
+    alert(adam.getCanNang());
+    alert(eva.getCanNang());
     alert(apple.weight);
 
 
